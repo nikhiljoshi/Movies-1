@@ -61,10 +61,10 @@
 # view res/layout/abs__search_view.xml #generated:84
 -keep class com.actionbarsherlock.widget.SearchView$SearchAutoComplete { <init>(...); }
 
-# view AndroidManifest.xml #generated:32
+# view AndroidManifest.xml #generated:33
 -keep class com.indydev.dooxmovies.activity.MovieListActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:20
+# view AndroidManifest.xml #generated:21
 -keep class com.indydev.dooxmovies.uil.HomeActivity { <init>(...); }
 
 # view res/layout/menu.xml #generated:2

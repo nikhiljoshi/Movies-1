@@ -7,6 +7,7 @@ import java.util.List;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,6 +57,7 @@ public class MovieListActivity extends AbsListViewBaseActivity {
 		titles = new String[movies.size()];
 		descs = new String[movies.size()];
 		urls = new String[movies.size()];
+		vcodes = new String[movies.size()];
 		
 		for(int i=0; i<movies.size(); i++){
 			MovieObject movieObject = movies.get(i);
@@ -93,6 +95,9 @@ public class MovieListActivity extends AbsListViewBaseActivity {
 				}else{
 					//open player
 					System.out.println("url = " + urls[position]);
+					Intent intent = new Intent(Intent.ACTION_VIEW); 
+					intent.setDataAndType(Uri.parse(urls[position]), "video/mp4");
+					startActivity(intent);
 				}
 			}
 		});
