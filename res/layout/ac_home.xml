@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:BCADAdView="http://schemas.android.com/apk/res/com.indydev.dooxmovies"
+    android:id="@+id/homeLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginBottom="50dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1" 
+            >
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:onClick="onClickBikini"
+                android:layout_weight="1" 
+                android:text="1"/>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:onClick="onClickSchool"
+                android:layout_weight="1" 
+                android:text="2"/>
+
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1" 
+            >
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:onClick="onClickCute"
+                android:layout_weight="1" 
+                android:text="3"/>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:onClick="onClickSpecial"
+                android:layout_weight="1" 
+                android:text="4"/>
+
+        </LinearLayout>
+        
+        
+    </LinearLayout>
+    
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:orientation="vertical" >
+
+        <!-- <buzzcity.android.sdk.BCADAdView
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom|center_horizontal"
+        BCADAdView:autoLoadRequest="true"
+        BCADAdView:partnerID="101021"
+        BCADAdView:adType="BCAD_TYPE_MWEB"
+        BCADAdView:adSize="BCAD_SIZE_CUSTOM"
+        BCADAdView:customAdSize="300_50" /> -->
+        
+       <ImageView 
+            android:id="@+id/ads"
+            android:contentDescription=""
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom|center_horizontal"
+            />
+        
+        <!-- <com.google.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            ads:adSize="BANNER"
+            ads:adUnitId="a151fb904a7c0e6"
+            ads:loadAdOnCreate="true"
+            ads:testDevices="TEST_EMULATOR, TEST_DEVICE_ID" /> -->
+    </LinearLayout>
+
+</FrameLayout>
