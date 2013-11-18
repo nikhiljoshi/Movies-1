@@ -16,6 +16,7 @@ public class RequestHttpClient{
 	
 	public interface RequestHttpClientListenner{
 		public void onRequestStringCallback(String response);
+		public void onRequestError(String error);
 	}
 	
 	public RequestHttpClient(String _url, RequestHttpClientListenner _listenner, Context _activity){
@@ -51,6 +52,10 @@ public class RequestHttpClient{
 					} catch (Exception e) {
 						// TODO: handle exception
 						System.out.println("ERROR = "+e.getMessage());
+						if(listenner!=null){
+			    			response = response.trim();
+				        	listenner.onRequestError(e.getMessage());
+				        }
 					}
 			          
 			    }

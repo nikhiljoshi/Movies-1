@@ -4,7 +4,7 @@
     <string name="preference_file_key">com.indydev.dooxmovies.KEY_PREFERENCE</string>
     <string name="country_code">com.indydev.dooxmovies.COUNTRY_CODE</string>
     
-    <string name="app_name">Doo X Movies</string>
+    <string name="app_name">ดูหนังโป๊ฟรี</string>
     <string name="properties">SlidingMenu Properties</string>
     <string name="general">General</string>
     <string name="viewpager">ViewPager</string>
@@ -17,8 +17,8 @@
     <string name="anim_scale">Scale</string>
     <string name="anim_fold">Fold</string>
     <string name="anim_slide">Slide Up</string>
-    <string name="changing_fragments">Doo X Movies</string>
-    <string name="responsive_ui">Doo X Movies</string>
+    <string name="changing_fragments">ดูหนังโป๊ฟรี</string>
+    <string name="responsive_ui">ดูหนังโป๊ฟรี</string>
     <string name="left">Left</string>
     <string name="right">Right</string>
     <string name="left_and_right">Left and Right</string>

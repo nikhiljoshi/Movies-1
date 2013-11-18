@@ -73,10 +73,10 @@
 # view res/layout/slidingmenumain.xml #generated:2
 -keep class com.jeremyfeinstein.slidingmenu.lib.SlidingMenu { <init>(...); }
 
-# onClick res/layout/ac_home.xml #generated:24
+# onClick res/layout/ac_home.xml #generated:33
 -keepclassmembers class * { *** onClickBikini(...); }
 
-# onClick res/layout/ac_home.xml #generated:48
+# onClick res/layout/ac_home.xml #generated:47
 -keepclassmembers class * { *** onClickCute(...); }
 
 # onClick res/layout/ac_image_grid.xml #generated:35
@@ -85,9 +85,9 @@
 # onClick res/layout/ac_image_grid.xml #generated:25
 -keepclassmembers class * { *** onClickPrevious(...); }
 
-# onClick res/layout/ac_home.xml #generated:31
+# onClick res/layout/ac_home.xml #generated:40
 -keepclassmembers class * { *** onClickSchool(...); }
 
-# onClick res/layout/ac_home.xml #generated:55
+# onClick res/layout/ac_home.xml #generated:54
 -keepclassmembers class * { *** onClickSpecial(...); }
 

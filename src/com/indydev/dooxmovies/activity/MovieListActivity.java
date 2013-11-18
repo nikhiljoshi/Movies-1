@@ -21,6 +21,7 @@ import buzzcity.android.sdk.BCAdsClientBanner;
 
 import com.google.android.youtube.player.YouTubeStandalonePlayer;
 import com.indydev.dooxmovies.R;
+import com.indydev.dooxmovies.main.AdsWrapper;
 import com.indydev.dooxmovies.main.MovieObject;
 import com.indydev.dooxmovies.uil.AbsListViewBaseActivity;
 import com.indydev.dooxmovies.uil.BaseActivity;
@@ -45,6 +46,8 @@ public class MovieListActivity extends AbsListViewBaseActivity {
  	
 //	DatabaseManager myDb;
 	ItemAdapter adapter;
+	
+	boolean clickVideo;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -76,7 +79,7 @@ public class MovieListActivity extends AbsListViewBaseActivity {
 			.showImageOnFail(R.drawable.ic_error)
 			.cacheInMemory(true)
 			.cacheOnDisc(true)
-			.displayer(new RoundedBitmapDisplayer(20))
+			.displayer(new /*RoundedBitmapDisplayer(20)*/FadeInBitmapDisplayer(1000))
 			.build();
 
 		listView = (ListView) findViewById(android.R.id.list);
@@ -86,12 +89,18 @@ public class MovieListActivity extends AbsListViewBaseActivity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				//open player
+				clickVideo = true;
 				if(vcodes[position]!=null){
 					//open youtube
 					System.out.println("vcode = " + vcodes[position]);
 					
-					Intent intent = YouTubeStandalonePlayer.createVideoIntent(MovieListActivity.this, "AIzaSyBuJweYhLFmX3fvlKhWkv6lnZqNlItSlcs", vcodes[position]);
-					 startActivity(intent);
+					//don't forget to random apikey
+					
+//					Intent intent = YouTubeStandalonePlayer.createVideoIntent(MovieListActivity.this, "AIzaSyBuJweYhLFmX3fvlKhWkv6lnZqNlItSlcs", vcodes[position]);
+//					startActivity(intent);
+					
+					Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube://" + vcodes[position]));
+					startActivity(intent);
 				}else{
 					//open player
 					System.out.println("url = " + urls[position]);
@@ -110,6 +119,12 @@ public class MovieListActivity extends AbsListViewBaseActivity {
 				BCAdsClientBanner.IMGSIZE_MWEB_216x36, this);
 		ImageView graphicalAds = (ImageView) findViewById(R.id.ads1);
 		graphicAdClient.getGraphicalAd(graphicalAds);
+		
+		BCAdsClientBanner graphicAdClient2 = new BCAdsClientBanner(106896,
+				BCAdsClientBanner.ADTYPE_MWEB,
+				BCAdsClientBanner.IMGSIZE_MWEB_216x36, this);
+		ImageView graphicalAds2 = (ImageView) findViewById(R.id.ads2);
+		graphicAdClient2.getGraphicalAd(graphicalAds2);
 	}
 	
 	@Override
@@ -117,6 +132,18 @@ public class MovieListActivity extends AbsListViewBaseActivity {
 		// TODO Auto-generated method stub
 		super.onResume();
 		adapter.notifyDataSetChanged();
+		if(clickVideo){
+			clickVideo = false;
+			//interestial ads
+			
+			Intent i = new Intent(getApplicationContext(), AdsWrapper.class);
+	        i.putExtra("partnerId", "YOUR PARTNER ID");
+	        i.putExtra("appId", "YOUR APPLICATION ID");
+	        i.putExtra("showAt", "start");
+	        i.putExtra("skipEarly", "true");
+	        i.putExtra("adsTimeout", "10");
+	        startActivity(i);
+		}
 	}
 
 	@Override

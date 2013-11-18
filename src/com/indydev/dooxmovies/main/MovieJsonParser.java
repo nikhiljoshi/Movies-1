@@ -49,12 +49,21 @@ public class MovieJsonParser implements RequestHttpClientListenner {
 		System.out.println("response = "+response);
 
 		if(nowParse == PARSE_MOVIE_X){
+			
+			String startIndex = "startjson";
+			String endIndex = "endjson";
+			String json = response.substring(
+					response.indexOf(startIndex)
+							+ startIndex.length(),
+							response.indexOf(endIndex));
+			
+			
 			try {
-				JSONArray jsonArray = new JSONArray(response);
+				JSONArray jsonArray = new JSONArray(json);
 				
 				if(jsonArray!=null && jsonArray.length()>0){
 					ArrayList<MovieObject> listMovie = new ArrayList<MovieObject>();
-					for(int i=0; i<jsonArray.length(); i++){
+					for(int i=jsonArray.length()-1; i>=0; i--){
 						JSONObject jsonObj = jsonArray.getJSONObject(i);
 						MovieObject movieObject = new MovieObject();
 						if(jsonObj.has(COL_TITLE)) movieObject.setTitle(jsonObj.getString(COL_TITLE));
@@ -86,11 +95,22 @@ public class MovieJsonParser implements RequestHttpClientListenner {
 					
 					youtubeObject.setTitle(item.getString("title"));
 					youtubeObject.setImage(item.getJSONObject("thumbnail").getString("sqDefault"));
-					String mobile = item.getJSONObject("player").getString("mobile"); //"http://m.youtube.com/details?v=EVZYQvWsC54"
-					mobile = mobile.substring(mobile.indexOf("v=")+2);
-					youtubeObject.setVcode(mobile);
+//					String mobile = item.getJSONObject("player").getString("mobile"); //"http://m.youtube.com/details?v=EVZYQvWsC54"
+//					mobile = mobile.substring(mobile.indexOf("v=")+2);
+//					youtubeObject.setVcode(mobile);
 					
-					listMovie.add(youtubeObject);
+					JSONObject player = item.getJSONObject("player");
+					if(player!=null){
+						System.out.println("player = "+player.toString());
+						if(player.has("default")){
+							String mobile = player.getString("default");// "http://m.youtube.com/details?v=EVZYQvWsC54";
+							mobile = /*mobile.substring(mobile.indexOf("v=")+2);*/mobile.substring(mobile.indexOf("v=")+2, mobile.indexOf("&feature"));
+							youtubeObject.setVcode(mobile);
+							
+							listMovie.add(youtubeObject);
+						}
+					}
+					
 				}
 				if(listenner!=null){
 					listenner.onGetMovieList(listMovie);
@@ -108,5 +128,12 @@ public class MovieJsonParser implements RequestHttpClientListenner {
 
 	public interface MovieJsonParserListenner {
 		public void onGetMovieList(ArrayList<MovieObject> listMovie);
+	}
+
+
+	@Override
+	public void onRequestError(String error) {
+		// TODO Auto-generated method stub
+		
 	}
 }

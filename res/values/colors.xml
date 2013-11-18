@@ -6,4 +6,13 @@
     <color name="white">#FFF</color>
     <color name="black">#000</color>
     
+    <color name="holo_red_light">#ffff4444</color>
+    <color name="holo_green_light">#ff99cc00</color>
+    <color name="holo_blue_light">#ff33b5e5</color>
+    <color name="holo_orange_light">#ffffbb33</color>
+    <color name="holo_purple">#ffaa66cc</color>
+    <color name="pink_hard">#fff61fb5</color>
+    <color name="pink_soft">#fff6b2d6</color>
+    
+    
 </resources>

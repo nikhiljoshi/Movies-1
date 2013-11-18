@@ -27,6 +27,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import buzzcity.android.sdk.BCAdsClientBanner;
 
@@ -62,15 +63,17 @@ public class HomeActivity extends BaseActivity implements
 	
 	String countryCode;
 	
-	String url_bikini = "http://gdata.youtube.com/feeds/api/users/UCHmpi5o1Fm2PDGa1izasg8w/uploads?&v=2&max-results=50&alt=jsonc";
-	String url_school = "http://gdata.youtube.com/feeds/api/users/UCHmpi5o1Fm2PDGa1izasg8w/uploads?&v=2&max-results=50&alt=jsonc";
-	String url_cute = "http://gdata.youtube.com/feeds/api/users/UCHmpi5o1Fm2PDGa1izasg8w/uploads?&v=2&max-results=50&alt=jsonc";
-	String url_special = "http://gdata.youtube.com/feeds/api/users/UCHmpi5o1Fm2PDGa1izasg8w/uploads?&v=2&max-results=50&alt=jsonc";
+	String url_bikini = "http://gdata.youtube.com/feeds/api/users/awaziavimotihca/uploads?&v=2&max-results=50&alt=jsonc";
+	String url_school = "http://gdata.youtube.com/feeds/api/users/xdaoisakuraxd/uploads?&v=2&max-results=50&alt=jsonc";
+	String url_cute = "http://gdata.youtube.com/feeds/api/users/AKB48NAME/uploads?&v=2&max-results=50&alt=jsonc";
+	String url_special = "http://gdata.youtube.com/feeds/api/users/windiluv5/uploads?&v=2&max-results=50&alt=jsonc";
 
 //	public static DatabaseManager dbMgr;
 	
 	SharedPreferences sharedPref;
 
+	Button specialBtn1;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -82,6 +85,10 @@ public class HomeActivity extends BaseActivity implements
 		ImageView graphicalAds = (ImageView) findViewById(R.id.ads);
 		graphicAdClient.getGraphicalAd(graphicalAds);
 		
+		
+		specialBtn1 = (Button)findViewById(R.id.specialBtn1);
+		specialBtn1.setVisibility(View.INVISIBLE);
+		specialBtn1.setEnabled(false);
 		
 		if (sharedPref == null) {
 			sharedPref = this.getSharedPreferences(
@@ -114,8 +121,10 @@ public class HomeActivity extends BaseActivity implements
 		}else{
 			if(countryCode.equalsIgnoreCase("Thailand")){
 				//open special url
-				url_special = "http://mazmelllow.zz.mu/movies.php";
+				url_special = "http://maz-mazmellow.blogspot.com/2013/11/titlemovie-1urlhttp119.html";//"http://mazmelllow.zz.mu/movies.php";
 				moviesSpecial = null;
+				specialBtn1.setVisibility(View.VISIBLE);
+				specialBtn1.setEnabled(true);
 			}
 		}
 		
@@ -134,6 +143,19 @@ public class HomeActivity extends BaseActivity implements
 //			chapterReadList.add(url);
 //		}
         
+
+		BCAdsClientBanner graphicAdClient0 = new BCAdsClientBanner(106400,
+				BCAdsClientBanner.ADTYPE_MWEB,
+				BCAdsClientBanner.IMGSIZE_MWEB_216x36, this);
+		ImageView graphicalAds0 = (ImageView) findViewById(R.id.ads);
+		graphicAdClient0.getGraphicalAd(graphicalAds0);
+		
+
+		BCAdsClientBanner graphicAdClient1 = new BCAdsClientBanner(106896,
+				BCAdsClientBanner.ADTYPE_MWEB,
+				BCAdsClientBanner.IMGSIZE_MWEB_216x36, this);
+		ImageView graphicalAds1 = (ImageView) findViewById(R.id.ads0);
+		graphicAdClient1.getGraphicalAd(graphicalAds1);
         
         
 	}
@@ -170,14 +192,23 @@ public class HomeActivity extends BaseActivity implements
 					
 					if(countryCode.equalsIgnoreCase("Thailand")){
 						//open special url
-						url_special = "http://mazmelllow.zz.mu/movies.php";
+						url_special = "http://maz-mazmellow.blogspot.com/2013/11/titlemovie-1urlhttp119.html";//"http://mazmelllow.zz.mu/movies.php";
 						moviesSpecial = null;
+						specialBtn1.setVisibility(View.VISIBLE);
+						specialBtn1.setEnabled(true);
 					}
 					
 				}
 					
 			}
-		}, null);
+
+			@Override
+			public void onRequestError(String error) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		}, HomeActivity.this);
 		locationClient.start();
 	}
 

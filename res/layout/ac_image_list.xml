@@ -3,7 +3,15 @@
     xmlns:BCADAdView="http://schemas.android.com/apk/res/com.indydev.dooxmovies"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:background="@color/pink_soft">
+
+    <ImageView
+        android:id="@+id/ads1"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="top|center_horizontal"
+        android:contentDescription="" />
 
     <ListView
         android:id="@android:id/list"
@@ -11,14 +19,14 @@
         android:layout_height="0dip"
         android:layout_weight="50" />
 
-    <ImageView 
-            android:id="@+id/ads1"
-            android:contentDescription=""
-            android:layout_width="fill_parent"
-            android:layout_height="50dp"
-            android:layout_gravity="bottom|center_horizontal"
-            />
-    <!-- <buzzcity.android.sdk.BCADAdView
+    <ImageView
+        android:id="@+id/ads2"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:contentDescription="" />
+    <!--
+         <buzzcity.android.sdk.BCADAdView
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_gravity="bottom|center_horizontal"
@@ -26,9 +34,12 @@
         BCADAdView:autoLoadRequest="true"
         BCADAdView:partnerID="101021"
         BCADAdView:adType="BCAD_TYPE_IMAGE"
-        BCADAdView:adSize="BCAD_SIZE_320x50" /> -->
-    
-    <!-- <com.google.ads.AdView
+        BCADAdView:adSize="BCAD_SIZE_320x50" />
+    -->
+
+
+    <!--
+         <com.google.ads.AdView
         android:id="@+id/adView1"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
@@ -37,6 +48,7 @@
         ads:adSize="BANNER"
         ads:adUnitId="a151fb904a7c0e6"
         ads:loadAdOnCreate="true"
-        ads:testDevices="TEST_EMULATOR, TEST_DEVICE_ID" /> -->
+        ads:testDevices="TEST_EMULATOR, TEST_DEVICE_ID" />
+    -->
 
 </LinearLayout>
