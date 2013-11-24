@@ -4,7 +4,7 @@
     <string name="preference_file_key">com.weera.dooxmovies.KEY_PREFERENCE</string>
     <string name="country_code">com.weera.dooxmovies.COUNTRY_CODE</string>
     <string name="show_popup_confirm18up">com.weera.dooxmovies.SHOW_POPUP_CONFIRM18UP</string>
-    
+    <string name="app_list">แอพดีๆ มีอีกเพียบ!</string>
     <string name="app_name">ดูหนังโป๊ฟรี</string>
     <string name="properties">SlidingMenu Properties</string>
     <string name="general">General</string>

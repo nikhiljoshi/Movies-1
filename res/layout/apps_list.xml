@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/pink_soft"
+    android:orientation="vertical" >
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="50" />
+
+    <ImageView 
+            android:id="@+id/ads6"
+            android:contentDescription=""
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom|center_horizontal"
+            />
+    <!-- <buzzcity.android.sdk.BCADAdView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_weight="1"
+        BCADAdView:autoLoadRequest="true"
+        BCADAdView:partnerID="101021"
+        BCADAdView:adType="BCAD_TYPE_IMAGE"
+        BCADAdView:adSize="BCAD_SIZE_320x50" /> -->
+    
+    <!-- <com.google.ads.AdView
+        android:id="@+id/adView1"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_weight="1"
+        android:layout_gravity="center_horizontal|bottom"
+        ads:adSize="BANNER"
+        ads:adUnitId="a151fb904a7c0e6"
+        ads:loadAdOnCreate="true"
+        ads:testDevices="TEST_EMULATOR, TEST_DEVICE_ID" /> -->
+
+</LinearLayout>

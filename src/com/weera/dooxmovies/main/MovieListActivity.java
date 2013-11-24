@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -51,6 +52,7 @@ public class MovieListActivity extends AbsListViewBaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ac_image_list);
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		
 		BaseActivity.imageLoader.init(ImageLoaderConfiguration.createDefault(this));
 
@@ -120,7 +122,7 @@ public class MovieListActivity extends AbsListViewBaseActivity {
 		ImageView graphicalAds = (ImageView) findViewById(R.id.ads1);
 		graphicAdClient.getGraphicalAd(graphicalAds);
 		
-		BCAdsClientBanner graphicAdClient2 = new BCAdsClientBanner(106896,
+		BCAdsClientBanner graphicAdClient2 = new BCAdsClientBanner(101021,
 				BCAdsClientBanner.ADTYPE_MWEB,
 				BCAdsClientBanner.IMGSIZE_MWEB_216x36, this);
 		ImageView graphicalAds2 = (ImageView) findViewById(R.id.ads2);
@@ -137,7 +139,7 @@ public class MovieListActivity extends AbsListViewBaseActivity {
 			//interestial ads
 			
 			Intent i = new Intent(getApplicationContext(), AdsWrapper.class);
-	        i.putExtra("partnerId", "106896");
+	        i.putExtra("partnerId", "101021");
 	        i.putExtra("appId", "com.weera.dooxmovies");
 	        i.putExtra("showAt", "start");
 	        i.putExtra("skipEarly", "true");

@@ -17,49 +17,58 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginBottom="50dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
         android:orientation="vertical" >
-        
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dip"
+            android:textColor="@color/pink_hard"
             android:text="ดูคลิปสาวโป๊สุดสยิว"
-            android:textSize="25sp"
-            android:layout_marginBottom="20dip"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:onClick="onClickBikini"
             android:layout_margin="5dip"
+            android:onClick="onClickBikini"
             android:text="คลิปสาวร้อนเซ็กซี่" />
 
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:onClick="onClickSchool"
             android:layout_margin="5dip"
+            android:onClick="onClickSchool"
             android:text="คลิปสาวน่ารักเซ็กซี่" />
 
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:onClick="onClickCute"
             android:layout_margin="5dip"
+            android:onClick="onClickCute"
             android:text="คลิปสาวนมใหญ่เซ็กซี่" />
 
         <Button
             android:id="@+id/specialBtn1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:onClick="onClickSpecial"
             android:layout_margin="5dip"
+            android:onClick="onClickSpecial"
+            android:text="คลิปพิเศษ ลองคลิกดูสิคะ"
+            android:visibility="visible" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dip"
+            android:onClick="onClickAppList"
             android:textColor="@color/pink_hard"
-            android:visibility="invisible"
-            android:text="คลิปพิเศษ ลองคลิกดูสิคะ" />
+            android:text="@string/app_list" />
+        
     </LinearLayout>
 
     <LinearLayout

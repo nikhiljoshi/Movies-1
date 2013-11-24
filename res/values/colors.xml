@@ -14,5 +14,9 @@
     <color name="pink_hard">#fff61fb5</color>
     <color name="pink_soft">#fff6b2d6</color>
     
+    <color name="chill_sky">#ffccffff</color>
+    <color name="cloud">#ffecf0f1</color>
+    <color name="belize_hole">#ff2980b9</color>
+    <color name="silver">#ffbdc3c7</color>
     
 </resources>

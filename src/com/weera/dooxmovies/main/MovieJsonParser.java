@@ -46,100 +46,93 @@ public class MovieJsonParser implements RequestHttpClientListenner {
 	@Override
 	public void onRequestStringCallback(String response) {
 		// TODO Auto-generated method stub
-		System.out.println("response = "+response);
+		System.out.println("response = " + response);
 
-		if(nowParse == PARSE_MOVIE_X){
+		if (nowParse == PARSE_MOVIE_X) {
 			ArrayList<MovieObject> listMovie = new ArrayList<MovieObject>();
-			String startIndex = "startjson";
-			String endIndex = "endjson";
-			if(response.indexOf(startIndex)!=-1 && response.indexOf(endIndex)!=-1){
-				String json = response.substring(
-						response.indexOf(startIndex)
-								+ startIndex.length(),
-								response.indexOf(endIndex));
-				
-				
-				try {
-					JSONArray jsonArray = new JSONArray(json);
-					
-					if(jsonArray!=null && jsonArray.length()>0){
-						for(int i=jsonArray.length()-1; i>=0; i--){
-							JSONObject jsonObj = jsonArray.getJSONObject(i);
-							MovieObject movieObject = new MovieObject();
-							if(jsonObj.has(COL_TITLE)) movieObject.setTitle(jsonObj.getString(COL_TITLE));
-							if(jsonObj.has(COL_URL)) movieObject.setUrl(jsonObj.getString(COL_URL));
-							if(jsonObj.has(COL_IMAGE)) movieObject.setImage(jsonObj.getString(COL_IMAGE));
-							if(jsonObj.has(COL_CREATETIME)) movieObject.setCreatetime(jsonObj.getString(COL_CREATETIME));
-							listMovie.add(movieObject);
-						}
-						if(listenner!=null){
-							listenner.onGetMovieList(listMovie);
-						}
+
+			try {
+				JSONArray jsonArray = new JSONArray(response);
+
+				if (jsonArray != null && jsonArray.length() > 0) {
+					for (int i = jsonArray.length() - 1; i >= 0; i--) {
+						JSONObject jsonObj = jsonArray.getJSONObject(i);
+						MovieObject movieObject = new MovieObject();
+						if (jsonObj.has(COL_TITLE))
+							movieObject.setTitle(jsonObj.getString(COL_TITLE));
+						if (jsonObj.has(COL_URL))
+							movieObject.setUrl(jsonObj.getString(COL_URL));
+						if (jsonObj.has(COL_IMAGE))
+							movieObject.setImage(jsonObj.getString(COL_IMAGE));
+						if (jsonObj.has(COL_CREATETIME))
+							movieObject.setCreatetime(jsonObj
+									.getString(COL_CREATETIME));
+						listMovie.add(movieObject);
 					}
-					
-					
-				} catch (JSONException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					System.out.println("error = "+e.getMessage());
+					if (listenner != null) {
+						listenner.onGetMovieList(listMovie);
+					}
 				}
-			}else{
-				if(listenner!=null){
-					listenner.onGetMovieList(listMovie);
-				}
+
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.out.println("error = " + e.getMessage());
 			}
-			
-		}else if(nowParse == PARSE_YOUTUBE){
+
+		} else if (nowParse == PARSE_YOUTUBE) {
 			try {
 				JSONObject res = new JSONObject(response);
 				JSONObject data = res.getJSONObject("data");
 				JSONArray items = data.getJSONArray("items");
 				ArrayList<MovieObject> listMovie = new ArrayList<MovieObject>();
-				for(int i=0; i<items.length(); i++){
+				for (int i = 0; i < items.length(); i++) {
 					JSONObject item = items.getJSONObject(i);
 					MovieObject youtubeObject = new MovieObject();
-					
+
 					youtubeObject.setTitle(item.getString("title"));
-					youtubeObject.setImage(item.getJSONObject("thumbnail").getString("sqDefault"));
-//					String mobile = item.getJSONObject("player").getString("mobile"); //"http://m.youtube.com/details?v=EVZYQvWsC54"
-//					mobile = mobile.substring(mobile.indexOf("v=")+2);
-//					youtubeObject.setVcode(mobile);
-					
+					youtubeObject.setImage(item.getJSONObject("thumbnail")
+							.getString("sqDefault"));
+					// String mobile =
+					// item.getJSONObject("player").getString("mobile");
+					// //"http://m.youtube.com/details?v=EVZYQvWsC54"
+					// mobile = mobile.substring(mobile.indexOf("v=")+2);
+					// youtubeObject.setVcode(mobile);
+
 					JSONObject player = item.getJSONObject("player");
-					if(player!=null){
-						System.out.println("player = "+player.toString());
-						if(player.has("default")){
+					if (player != null) {
+						System.out.println("player = " + player.toString());
+						if (player.has("default")) {
 							String mobile = player.getString("default");// "http://m.youtube.com/details?v=EVZYQvWsC54";
-							mobile = /*mobile.substring(mobile.indexOf("v=")+2);*/mobile.substring(mobile.indexOf("v=")+2, mobile.indexOf("&feature"));
+							mobile = /* mobile.substring(mobile.indexOf("v=")+2); */mobile
+									.substring(mobile.indexOf("v=") + 2,
+											mobile.indexOf("&feature"));
 							youtubeObject.setVcode(mobile);
-							
+
 							listMovie.add(youtubeObject);
 						}
 					}
-					
+
 				}
-				if(listenner!=null){
+				if (listenner != null) {
 					listenner.onGetMovieList(listMovie);
 				}
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				System.out.println("error = "+e.getMessage());
+				System.out.println("error = " + e.getMessage());
 			}
 		}
-		
 
 	}
-
 
 	public interface MovieJsonParserListenner {
 		public void onGetMovieList(ArrayList<MovieObject> listMovie);
 	}
 
-
 	@Override
 	public void onRequestError(String error) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

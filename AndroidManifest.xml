@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.weera.dooxmovies"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionCode="3"
+    android:versionName="1.2" >
 
     <uses-sdk
-        android:minSdkVersion="7"
+        android:minSdkVersion="5"
         android:targetSdkVersion="16" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -32,6 +32,10 @@
         <activity android:name="com.weera.dooxmovies.main.AdsWrapper"></activity>
         <activity
             android:name="com.weera.dooxmovies.main.MovieListActivity"
+            android:label="Doo X movies" />
+        
+        <activity
+            android:name="com.weera.dooxmovies.main.AppListActivity"
             android:label="Doo X movies" />
         
         <!--

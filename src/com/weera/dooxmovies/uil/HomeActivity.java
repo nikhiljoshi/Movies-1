@@ -26,24 +26,25 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.ImageView;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.ImageView;
 import buzzcity.android.sdk.BCAdsClientBanner;
 
 import com.weera.dooxmovies.R;
-import com.weera.dooxmovies.main.AdsWrapper;
+import com.weera.dooxmovies.main.AppListActivity;
 import com.weera.dooxmovies.main.GPSTracker;
 import com.weera.dooxmovies.main.MovieJsonParser;
+import com.weera.dooxmovies.main.MovieJsonParser.MovieJsonParserListenner;
 import com.weera.dooxmovies.main.MovieListActivity;
 import com.weera.dooxmovies.main.MovieObject;
 import com.weera.dooxmovies.main.RequestHttpClient;
-import com.weera.dooxmovies.main.MovieJsonParser.MovieJsonParserListenner;
 import com.weera.dooxmovies.main.RequestHttpClient.RequestHttpClientListenner;
 
 /**
@@ -88,13 +89,8 @@ public class HomeActivity extends BaseActivity implements
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ac_home);
-
-		BCAdsClientBanner graphicAdClient = new BCAdsClientBanner(106400,
-				BCAdsClientBanner.ADTYPE_MWEB,
-				BCAdsClientBanner.IMGSIZE_MWEB_216x36, this);
-		ImageView graphicalAds = (ImageView) findViewById(R.id.ads);
-		graphicAdClient.getGraphicalAd(graphicalAds);
-
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+		
 		specialBtn1 = (Button) findViewById(R.id.specialBtn1);
 		specialBtn1.setVisibility(View.INVISIBLE);
 		specialBtn1.setEnabled(false);
@@ -127,7 +123,7 @@ public class HomeActivity extends BaseActivity implements
 		} else {
 			if (countryCode.equalsIgnoreCase("Thailand")) {
 				// open special url
-				url_special = "http://maz-mazmellow.blogspot.com/2013/11/titlemovie-1urlhttp119.html";// "http://mazmelllow.zz.mu/movies.php";
+				url_special = "http://mazmelllow.zz.mu/movies.php";
 				moviesSpecial = null;
 				specialBtn1.setVisibility(View.VISIBLE);
 				specialBtn1.setEnabled(true);
@@ -147,6 +143,13 @@ public class HomeActivity extends BaseActivity implements
 		// System.out.println("-- url chapter read: " + url);
 		// chapterReadList.add(url);
 		// }
+		
+		
+		BCAdsClientBanner graphicAdClient1 = new BCAdsClientBanner(101021,
+				BCAdsClientBanner.ADTYPE_MWEB,
+				BCAdsClientBanner.IMGSIZE_MWEB_216x36, this);
+		ImageView graphicalAds1 = (ImageView) findViewById(R.id.ads0);
+		graphicAdClient1.getGraphicalAd(graphicalAds1);
 
 		BCAdsClientBanner graphicAdClient0 = new BCAdsClientBanner(106400,
 				BCAdsClientBanner.ADTYPE_MWEB,
@@ -154,11 +157,7 @@ public class HomeActivity extends BaseActivity implements
 		ImageView graphicalAds0 = (ImageView) findViewById(R.id.ads);
 		graphicAdClient0.getGraphicalAd(graphicalAds0);
 
-		BCAdsClientBanner graphicAdClient1 = new BCAdsClientBanner(106896,
-				BCAdsClientBanner.ADTYPE_MWEB,
-				BCAdsClientBanner.IMGSIZE_MWEB_216x36, this);
-		ImageView graphicalAds1 = (ImageView) findViewById(R.id.ads0);
-		graphicAdClient1.getGraphicalAd(graphicalAds1);
+		
 
 		showCheckBox();
 	}
@@ -251,7 +250,7 @@ public class HomeActivity extends BaseActivity implements
 
 							if (countryCode.equalsIgnoreCase("Thailand")) {
 								// open special url
-								url_special = "http://maz-mazmellow.blogspot.com/2013/11/titlemovie-1urlhttp119.html";// "http://mazmelllow.zz.mu/movies.php";
+								url_special = "http://mazmelllow.zz.mu/movies.php";
 								moviesSpecial = null;
 								specialBtn1.setVisibility(View.VISIBLE);
 								specialBtn1.setEnabled(true);
@@ -269,6 +268,11 @@ public class HomeActivity extends BaseActivity implements
 
 				}, HomeActivity.this);
 		locationClient.start();
+	}
+	
+	public void onClickAppList(View view){
+		Intent intent = new Intent(this, AppListActivity.class);
+		startActivity(intent);
 	}
 
 	public void onClickBikini(View view) {
