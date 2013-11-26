@@ -30,6 +30,7 @@ import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.weera.dooxmovies.uil.AbsListViewBaseActivity;
 import com.weera.dooxmovies.uil.BaseActivity;
+import com.weera.dooxmovies.uil.HomeActivity;
 
 public class MovieListActivity extends AbsListViewBaseActivity {
 
@@ -134,7 +135,7 @@ public class MovieListActivity extends AbsListViewBaseActivity {
 		// TODO Auto-generated method stub
 		super.onResume();
 		adapter.notifyDataSetChanged();
-		if(clickVideo){
+		if(clickVideo && HomeActivity.countryCode!=null && HomeActivity.countryCode.equalsIgnoreCase("Thailand")){
 			clickVideo = false;
 			//interestial ads
 			

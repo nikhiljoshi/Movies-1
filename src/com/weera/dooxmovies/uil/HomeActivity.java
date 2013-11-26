@@ -72,7 +72,7 @@ public class HomeActivity extends BaseActivity implements
 	double longitude;
 	double latitude;
 
-	String countryCode;
+	public static String countryCode;
 
 	String url_bikini = "http://gdata.youtube.com/feeds/api/users/awaziavimotihca/uploads?&v=2&max-results=50&alt=jsonc";
 	String url_school = "http://gdata.youtube.com/feeds/api/users/xdaoisakuraxd/uploads?&v=2&max-results=50&alt=jsonc";
@@ -123,7 +123,7 @@ public class HomeActivity extends BaseActivity implements
 		} else {
 			if (countryCode.equalsIgnoreCase("Thailand")) {
 				// open special url
-				url_special = "http://mazmelllow.zz.mu/movies.php";
+				url_special = "http://www.mazmellow.com/movies.php";
 				moviesSpecial = null;
 				specialBtn1.setVisibility(View.VISIBLE);
 				specialBtn1.setEnabled(true);
@@ -250,7 +250,7 @@ public class HomeActivity extends BaseActivity implements
 
 							if (countryCode.equalsIgnoreCase("Thailand")) {
 								// open special url
-								url_special = "http://mazmelllow.zz.mu/movies.php";
+								url_special = "http://www.mazmellow.com/movies.php";
 								moviesSpecial = null;
 								specialBtn1.setVisibility(View.VISIBLE);
 								specialBtn1.setEnabled(true);

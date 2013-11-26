@@ -61,7 +61,7 @@ public class AppListActivity extends AbsListViewBaseActivity implements
 
 	// ----
 	RequestHttpClient httpClient;
-	String urlList = "http://mazmelllow.zz.mu/applist.php";
+	String urlList = "http://www.mazmellow.com/applist.php";
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
