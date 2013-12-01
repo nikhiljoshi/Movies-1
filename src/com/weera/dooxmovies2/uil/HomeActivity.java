@@ -79,7 +79,7 @@ public class HomeActivity extends BaseActivity implements
 	String url_cute = "http://gdata.youtube.com/feeds/api/users/AKB48NAME/uploads?&v=2&max-results=50&alt=jsonc";
 	String url_special = "http://gdata.youtube.com/feeds/api/users/windiluv5/uploads?&v=2&max-results=50&alt=jsonc";
 
-	String url_xxx = "http://thaigirlsexy.blogspot.com/2013/11/movie.html";//"http://www.mazmellow.com/movies.php";
+	String url_xxx = /*"http://thaigirlsexy.blogspot.com/2013/11/movie.html";/*/"http://www.mazmellow.com/movies.php";
 	
 	
 	// public static DatabaseManager dbMgr;
