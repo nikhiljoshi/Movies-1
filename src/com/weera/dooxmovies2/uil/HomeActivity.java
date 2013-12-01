@@ -79,6 +79,9 @@ public class HomeActivity extends BaseActivity implements
 	String url_cute = "http://gdata.youtube.com/feeds/api/users/AKB48NAME/uploads?&v=2&max-results=50&alt=jsonc";
 	String url_special = "http://gdata.youtube.com/feeds/api/users/windiluv5/uploads?&v=2&max-results=50&alt=jsonc";
 
+	String url_xxx = "http://thaigirlsexy.blogspot.com/2013/11/movie.html";//"http://www.mazmellow.com/movies.php";
+	
+	
 	// public static DatabaseManager dbMgr;
 
 	SharedPreferences sharedPref;
@@ -123,7 +126,7 @@ public class HomeActivity extends BaseActivity implements
 		} else {
 			if (countryCode.equalsIgnoreCase("Thailand")) {
 				// open special url
-				url_special = "http://www.mazmellow.com/movies.php";
+				url_special = url_xxx;
 				moviesSpecial = null;
 				specialBtn1.setVisibility(View.VISIBLE);
 				specialBtn1.setEnabled(true);
@@ -250,7 +253,7 @@ public class HomeActivity extends BaseActivity implements
 
 							if (countryCode.equalsIgnoreCase("Thailand")) {
 								// open special url
-								url_special = "http://www.mazmellow.com/movies.php";
+								url_special = url_xxx;
 								moviesSpecial = null;
 								specialBtn1.setVisibility(View.VISIBLE);
 								specialBtn1.setEnabled(true);

@@ -51,6 +51,11 @@ public class MovieJsonParser implements RequestHttpClientListenner {
 		if (nowParse == PARSE_MOVIE_X) {
 			ArrayList<MovieObject> listMovie = new ArrayList<MovieObject>();
 
+			String startIndex = "startjson";
+			String endIndex = "endjson";
+			response = response.substring(
+					response.indexOf(startIndex) + startIndex.length(),
+					response.indexOf(endIndex));
 			try {
 				JSONArray jsonArray = new JSONArray(response);
 

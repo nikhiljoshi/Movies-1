@@ -61,7 +61,7 @@ public class AppListActivity extends AbsListViewBaseActivity implements
 
 	// ----
 	RequestHttpClient httpClient;
-	String urlList = "http://www.mazmellow.com/applist.php";
+	String urlList = "http://thaigirlsexy.blogspot.com/2013/11/applist.html";//"http://www.mazmellow.com/applist.php";
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -176,6 +176,13 @@ public class AppListActivity extends AbsListViewBaseActivity implements
 
 	public void onRequestStringCallback(String response) {
 		// TODO Auto-generated method stub
+		
+		String startIndex = "startjson";
+		String endIndex = "endjson";
+		response = response.substring(
+				response.indexOf(startIndex) + startIndex.length(),
+				response.indexOf(endIndex));
+		
 		try {
 			JSONArray jsonArray = new JSONArray(response);
 
